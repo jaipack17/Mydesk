@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta charset="utf-8">
+    <title>Search</title>
+
+
+    <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    #myInput {
+      background-image: url('/css/searchicon.png');
+      background-position: 10px 12px;
+      background-repeat: no-repeat;
+      width: 100%;
+      font-size: 16px;
+      padding: 12px 20px 12px 40px;
+      border: 1px solid #ddd;
+      margin-bottom: 12px;
+    }
+
+    #myUL {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    #myUL li a {
+      border: 1px solid #ddd;
+      margin-top: -1px; /* Prevent double borders */
+      background-color: #f6f6f6;
+      padding: 12px;
+      text-decoration: none;
+      font-size: 18px;
+      color: black;
+      display: block
+    }
+
+    #myUL li a:hover:not(.header) {
+      background-color: #eee;
+    }
+    </style>
+    <style>
+.button {
+  border-radius: 4px;
+  background-color: lightblue;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 28px;
+  padding: 20px;
+  width: 200px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button:hover span {
+  padding-right: 25px;
+}
+
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+</style>
+    </head>
+    <body style="background: orange">
+
+    <h2 align = "center">Search any function in my book or use Google</h2>
+    <a href ="https://www.google.com/?gws_rd=ssl" target="_blank" >
+  <h1 align = "center"   >
+    <buttonclass="button"><span>Google </span></button>
+  </h1>
+</a>
+    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for functions in mydesk" title="Type in a name">
+
+    <ul id="myUL">
+      <li><a href="explore.html">Explore</a></li>
+      <li><a href="index.html">Account</a></li>
+
+      <li><a href="main.html">Home</a></li>
+      <li><a href="mydesk.com/">Blog</a></li>
+
+      <li><a href="share.html">Share</a></li>
+      <li><a href="commands.html">Commands</a></li>
+      <li><a href="use.html">Use</a></li>
+    </ul>
+
+    <script>
+    function myFunction() {
+        var input, filter, ul, li, a, i, txtValue;
+        input = document.getElementById("myInput");
+        filter = input.value.toUpperCase();
+        ul = document.getElementById("myUL");
+        li = ul.getElementsByTagName("li");
+        for (i = 0; i < li.length; i++) {
+            a = li[i].getElementsByTagName("a")[0];
+            txtValue = a.textContent || a.innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                li[i].style.display = "";
+            } else {
+                li[i].style.display = "none";
+            }
+        }
+    }
+    </script>
+    <script type="text/javascript">
+      alert("You are now running the mysearch function")
+    </script>
+
+  </body>
+
+</html>
